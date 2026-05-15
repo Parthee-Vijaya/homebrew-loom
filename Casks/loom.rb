@@ -1,6 +1,6 @@
 cask "loom" do
   version "0.1.0"
-  sha256 :no_check  # set to actual sha256 of the .dmg once released
+  sha256 "f2d93d0b2e8ee005bf677892b6ce39c8ea7406974fef688c3372941830d9e63b"
 
   on_arm do
     url "https://github.com/Parthee-Vijaya/loom/releases/download/v#{version}/Loom_#{version}_aarch64.dmg"
