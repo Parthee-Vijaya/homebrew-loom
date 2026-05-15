@@ -2,17 +2,21 @@
 
 Homebrew tap for [Loom](https://github.com/Parthee-Vijaya/loom) — personal idea archive with AI-enriched canvas.
 
+> **Note:** The cask is named `loom-canvas` (not `loom`) to avoid collision
+> with Atlassian's `loom` cask in the main homebrew-cask repository. The app
+> itself still installs as **Loom.app** in `/Applications/`.
+
 ## Install
 
 ```bash
-brew install --cask parthee-vijaya/loom/loom
+brew install --cask parthee-vijaya/loom/loom-canvas
 ```
 
 Or tap explicitly first:
 
 ```bash
 brew tap parthee-vijaya/loom
-brew install --cask loom
+brew install --cask loom-canvas
 ```
 
 ## What this installs
@@ -35,7 +39,7 @@ brew install --cask loom
 ## Update
 
 ```bash
-brew upgrade --cask loom
+brew upgrade --cask loom-canvas
 ```
 
 Loom also auto-updates via Tauri's updater when a new release lands on GitHub.
@@ -43,8 +47,8 @@ Loom also auto-updates via Tauri's updater when a new release lands on GitHub.
 ## Uninstall
 
 ```bash
-brew uninstall --cask loom
-brew uninstall --zap --cask loom    # also wipes data: ~/.loom, support files
+brew uninstall --cask loom-canvas
+brew uninstall --zap --cask loom-canvas    # also wipes data: ~/.loom, support files
 ```
 
 ## Related taps

@@ -1,4 +1,4 @@
-cask "loom" do
+cask "loom-canvas" do
   version "0.1.0"
   sha256 "f2d93d0b2e8ee005bf677892b6ce39c8ea7406974fef688c3372941830d9e63b"
 
