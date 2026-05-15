@@ -1,34 +1,31 @@
-cask "loom-canvas" do
+cask "loomjarvis" do
   version "0.1.0"
-  sha256 "f2d93d0b2e8ee005bf677892b6ce39c8ea7406974fef688c3372941830d9e63b"
+  sha256 "a7de1ab6868e275417e7cad8f8e4e07bce7dd2ccb7e7eec0789260f1a7c9e4f5"
 
   on_arm do
-    url "https://github.com/Parthee-Vijaya/loom/releases/download/v#{version}/Loom_#{version}_aarch64.dmg"
+    url "https://github.com/Parthee-Vijaya/loom/releases/download/v#{version}/LoomJarvis_#{version}_aarch64.dmg"
   end
   on_intel do
-    url "https://github.com/Parthee-Vijaya/loom/releases/download/v#{version}/Loom_#{version}_x64.dmg"
+    url "https://github.com/Parthee-Vijaya/loom/releases/download/v#{version}/LoomJarvis_#{version}_x64.dmg"
   end
 
-  name "Loom"
+  name "LoomJarvis"
   desc "Personal idea archive with AI-enriched canvas, incubator, and synthesis"
   homepage "https://github.com/Parthee-Vijaya/loom"
 
   auto_updates true
   depends_on macos: ">= :sonoma"
 
-  app "Loom.app"
+  app "LoomJarvis.app"
 
-  # First-run setup: Loom expects docker (or orbstack) for its compose stack.
-  # We don't auto-install Docker here — the onboarding wizard inside Loom
-  # detects it and points the user to orbstack.dev if missing.
   caveats <<~EOS
-    Loom uses a local Docker stack for its API + database. If you don't
+    LoomJarvis uses a local Docker stack for its API + database. If you don't
     already have Docker Desktop or OrbStack, install one of them:
 
       brew install --cask orbstack       # recommended, lightweight
       brew install --cask docker         # alternative
 
-    On first launch, Loom's onboarding wizard will:
+    On first launch, the onboarding wizard will:
       • detect your hardware and recommend an LLM (local or cloud)
       • install Ollama via brew if you choose local
       • import your Claude and GitHub projects
@@ -37,13 +34,17 @@ cask "loom-canvas" do
     Your data lives at:
       ~/.loom/             — docker-compose + .env + patches
       ~/.loom/CAPTURE_TOKEN — iOS Shortcut / Raycast dispatch token
+
+    Note: the cask is named `loomjarvis` (not `loom`) because Atlassian's
+    `loom` cask already exists in homebrew-cask main repo. The app installs
+    as `LoomJarvis.app` in /Applications/.
   EOS
 
   zap trash: [
     "~/Library/Application Support/loom",
     "~/Library/Logs/loom",
-    "~/Library/Preferences/com.parthee.loom.plist",
-    "~/Library/Saved Application State/com.parthee.loom.savedState",
+    "~/Library/Preferences/com.loomjarvis.desktop.plist",
+    "~/Library/Saved Application State/com.loomjarvis.desktop.savedState",
     "~/.loom",
   ]
 end

@@ -1,28 +1,30 @@
 # homebrew-loom
 
-Homebrew tap for [Loom](https://github.com/Parthee-Vijaya/loom) — personal idea archive with AI-enriched canvas.
+Homebrew tap for **LoomJarvis** — personal idea archive with AI-enriched canvas.
 
-> **Note:** The cask is named `loom-canvas` (not `loom`) to avoid collision
-> with Atlassian's `loom` cask in the main homebrew-cask repository. The app
-> itself still installs as **Loom.app** in `/Applications/`.
+Source repository: [Parthee-Vijaya/loom](https://github.com/Parthee-Vijaya/loom)
+
+> **Cask name note:** the cask is named `loomjarvis` (not `loom`) to avoid
+> collision with Atlassian's `loom` cask in the main homebrew-cask repository.
+> The app installs as **LoomJarvis.app** in `/Applications/`.
 
 ## Install
 
 ```bash
-brew install --cask parthee-vijaya/loom/loom-canvas
+brew install --cask Parthee-Vijaya/loom/loomjarvis
 ```
 
 Or tap explicitly first:
 
 ```bash
-brew tap parthee-vijaya/loom
-brew install --cask loom-canvas
+brew tap Parthee-Vijaya/loom
+brew install --cask loomjarvis
 ```
 
 ## What this installs
 
-- The **Loom.app** Mac desktop client (Tauri-built, ARM64 + x64 universal)
-- Lives in `/Applications/Loom.app`
+- **LoomJarvis.app** Mac desktop client (Tauri-built, ~2 MB DMG)
+- Installs in `/Applications/LoomJarvis.app`
 - First-run onboarding wizard handles:
   - Hardware detection + LLM recommendation
   - Ollama install (if you pick local LLM)
@@ -39,16 +41,29 @@ brew install --cask loom-canvas
 ## Update
 
 ```bash
-brew upgrade --cask loom-canvas
+brew upgrade --cask loomjarvis
 ```
 
-Loom also auto-updates via Tauri's updater when a new release lands on GitHub.
+LoomJarvis also auto-updates via Tauri's updater when a new release lands on GitHub.
 
 ## Uninstall
 
 ```bash
-brew uninstall --cask loom-canvas
-brew uninstall --zap --cask loom-canvas    # also wipes data: ~/.loom, support files
+brew uninstall --cask loomjarvis
+brew uninstall --zap --cask loomjarvis    # also wipes data: ~/.loom, support files
+```
+
+## First-run Gatekeeper bypass (unsigned builds)
+
+Until LoomJarvis is signed via Apple Developer Program ($99/year), macOS will
+warn that the app is from an unidentified developer. Two workarounds:
+
+```bash
+# Option 1 — CLI strip quarantine:
+xattr -dr com.apple.quarantine /Applications/LoomJarvis.app
+
+# Option 2 — right-click LoomJarvis.app → "Åbn" → confirm in dialog.
+# macOS remembers your choice.
 ```
 
 ## Related taps
@@ -58,4 +73,4 @@ brew uninstall --zap --cask loom-canvas    # also wipes data: ~/.loom, support f
 
 ---
 
-*Distribution-pipeline for the Loom desktop app. Source lives at [Parthee-Vijaya/loom](https://github.com/Parthee-Vijaya/loom).*
+*Distribution-pipeline for the LoomJarvis desktop app.*
